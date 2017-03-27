@@ -17,7 +17,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.SparseArray;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -858,17 +857,12 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
             MarginLayoutParams lp = (MarginLayoutParams) tipView.getLayoutParams();
 
             //用于调整当只有两个tab的时候 msg显示位置错乱问题  // TODO: 2017/3/25 当有多个的时候可以在这里进行判断一下
-            Log.d("SlidingTabLayout", "mTabWidth:" + mTabWidth);
             lp.leftMargin = mTabWidth >= 0 ? (int) (mTabWidth / 2 + textWidth / 2 + dp2px(leftPadding)) :
                     (int) (mTabPadding * 3 / 2 + textWidth * 3 / 2 + dp2px(leftPadding));
 
             //一下的这一句是当tab数量多于2个,也就是多个的时候  MsgView的显示位置是正常的
 //            lp.leftMargin = mTabWidth >= 0 ? (int) (mTabWidth / 2 + textWidth / 2 + dp2px(leftPadding)) :
 //                    (int) (mTabPadding + textWidth  + dp2px(leftPadding));
-            Log.d("SlidingTabLayout", "mTabPadding:" + mTabPadding);
-            Log.d("SlidingTabLayout", "textWidth:" + textWidth);
-            Log.d("SlidingTabLayout", "leftPadding:" + leftPadding);
-            Log.d("SlidingTabLayout", "lp.leftMargin:" + lp.leftMargin);
 //            lp.leftMargin
             lp.topMargin = mHeight > 0 ? (int) (mHeight - textHeight) / 2 - dp2px(bottomPadding) : 0;
 
